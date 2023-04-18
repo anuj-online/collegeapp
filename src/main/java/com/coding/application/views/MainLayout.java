@@ -4,7 +4,9 @@ package com.coding.application.views;
 import com.coding.application.components.appnav.AppNav;
 import com.coding.application.components.appnav.AppNavItem;
 import com.coding.application.views.helloworld.HelloWorldView;
-import com.coding.application.views.personform.PersonFormView;
+import com.coding.application.views.login.LoginView;
+import com.coding.application.views.newsingup.NewSingupView;
+import com.coding.application.views.personform.SignUpForm;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -54,8 +56,10 @@ public class MainLayout extends AppLayout {
         // For documentation, visit https://github.com/vaadin/vcf-nav#readme
         AppNav nav = new AppNav();
 
+        nav.addItem(new AppNavItem("New Sign up", NewSingupView.class, LineAwesomeIcon.GLOBE_SOLID.create()));
         nav.addItem(new AppNavItem("Hello World", HelloWorldView.class, LineAwesomeIcon.GLOBE_SOLID.create()));
-        nav.addItem(new AppNavItem("Person Form", PersonFormView.class, LineAwesomeIcon.USER.create()));
+        nav.addItem(new AppNavItem("Sign up", SignUpForm.class, LineAwesomeIcon.USER.create()));
+        nav.addItem(new AppNavItem("Login Form", LoginView.class, LineAwesomeIcon.USER.create()));
 
         return nav;
     }

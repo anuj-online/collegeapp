@@ -2,6 +2,8 @@ package com.coding.application.data.service;
 
 import com.coding.application.data.entity.SamplePerson;
 import java.util.Optional;
+
+import com.coding.application.views.personform.SignUpForm;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -20,8 +22,10 @@ public class SamplePersonService {
         return repository.findById(id);
     }
 
-    public SamplePerson update(SamplePerson entity) {
-        return repository.save(entity);
+    public SamplePerson saveUpdate(SamplePerson samplePerson) {
+
+
+        return repository.save(samplePerson);
     }
 
     public void delete(Long id) {
@@ -32,9 +36,6 @@ public class SamplePersonService {
         return repository.findAll(pageable);
     }
 
-    public Page<SamplePerson> list(Pageable pageable, Specification<SamplePerson> filter) {
-        return repository.findAll(filter, pageable);
-    }
 
     public int count() {
         return (int) repository.count();
