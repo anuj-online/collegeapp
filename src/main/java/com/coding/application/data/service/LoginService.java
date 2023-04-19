@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class LoginService {
 
-    SamplePersonRepository repository;
+    UserRepository repository;
 
     public boolean login(String username, String password){
-        return repository.existsByEmail(username);
+        return repository.existsByEmailAndPassword(username, password);
     }
 }

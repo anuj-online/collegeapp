@@ -5,10 +5,10 @@ import com.coding.application.components.appnav.AppNav;
 import com.coding.application.components.appnav.AppNavItem;
 import com.coding.application.views.helloworld.HelloWorldView;
 import com.coding.application.views.login.LoginView;
-import com.coding.application.views.newsingup.NewSingupView;
-import com.coding.application.views.personform.SignUpForm;
+import com.coding.application.views.newsingup.SignUpComponent;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.dependency.StyleSheet;
 import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
@@ -21,6 +21,7 @@ import org.vaadin.lineawesome.LineAwesomeIcon;
 /**
  * The main view is a top-level placeholder for other views.
  */
+@StyleSheet("../styles.css")
 public class MainLayout extends AppLayout {
 
     private H2 viewTitle;
@@ -29,6 +30,7 @@ public class MainLayout extends AppLayout {
         setPrimarySection(Section.DRAWER);
         addDrawerContent();
         addHeaderContent();
+        this.setClassName("bgall");
     }
 
     private void addHeaderContent() {
@@ -56,9 +58,8 @@ public class MainLayout extends AppLayout {
         // For documentation, visit https://github.com/vaadin/vcf-nav#readme
         AppNav nav = new AppNav();
 
-        nav.addItem(new AppNavItem("New Sign up", NewSingupView.class, LineAwesomeIcon.GLOBE_SOLID.create()));
+        nav.addItem(new AppNavItem("Sign up", SignUpComponent.class, LineAwesomeIcon.USER_PLUS_SOLID.create()));
         nav.addItem(new AppNavItem("Hello World", HelloWorldView.class, LineAwesomeIcon.GLOBE_SOLID.create()));
-        nav.addItem(new AppNavItem("Sign up", SignUpForm.class, LineAwesomeIcon.USER.create()));
         nav.addItem(new AppNavItem("Login Form", LoginView.class, LineAwesomeIcon.USER.create()));
 
         return nav;
